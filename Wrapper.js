@@ -12,25 +12,32 @@ const links = [
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js',
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js',
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js',
-];
+];;
 
+window.trustedTypes.createPolicy('default', {
+    createHTML: str => str,
+    createScriptURL: str => str,
+    createScript: str => str,
+});
+
+console.log('Wrapper: healthy');
 // thx llm i hope no bug
 (async function loadScripts() {
-  console.log('body loaded, fetching other scripts');
-  
+  console.log('Wrapper: body loaded, fetching other scripts');
+
   for (const url of links) {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        console.error(`Failed to load ${url}: ${response.status}`);
+        console.error(`Wrapper: Failed to load ${url}: ${response.status}`);
         continue;
       }
       const scriptText = await response.text();
       eval(scriptText); // bam
-      console.log(`Loaded script: ${url}`);
+      console.log(`Wrapper: Loaded script: ${url}`);
     } catch (error) {
-      console.error(`Error loading script ${url}:`, error);
+      console.log(`Wrapper: Error loading script ${url}:`, error);
     }
   }
-  console.log('all loaded');
+  console.log('Wrapper: all loaded');
 })();
