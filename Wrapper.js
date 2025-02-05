@@ -14,7 +14,7 @@ const links = [
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js',
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js',
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js',
-];;
+];
 
 window.trustedTypes.createPolicy('default', {
     createHTML: str => str,
