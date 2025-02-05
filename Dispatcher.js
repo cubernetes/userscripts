@@ -12,7 +12,7 @@
 console.log('Running Dispatcher');
 
 if (unsafeWindow)
-	unsafeWindow?.GM = GM;
+	unsafeWindow.GM = GM;
 
 function loadScript(url) {
 	GM.xmlHttpRequest({
