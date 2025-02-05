@@ -10,6 +10,7 @@
 // ==/UserScript==
 
 console.log('Running Dispatcher');
+console.log('Window keys', Object.keys(window));
 
 function loadScript(url) {
 	GM_xmlhttpRequest({

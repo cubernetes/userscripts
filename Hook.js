@@ -16,7 +16,6 @@ function loadScript(url) {
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
-		alert(response.responseText)
 		GM_addElement('script', {
 		  textContent: response.responseText
 		});
