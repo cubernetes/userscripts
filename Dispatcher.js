@@ -20,6 +20,7 @@ function loadScript(url, callback) {
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
+		console.log(response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();'));
 		GM.addElement('script', {
 			textContent: response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();')
 		});
