@@ -12,7 +12,7 @@
 console.log('Running Hook')
 
 function loadScript(url) {
-	GM_xmlHttpRequest({
+	GM_xmlhttpRequest({
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
