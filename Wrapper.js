@@ -6,6 +6,8 @@
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
 // ==/UserScript==
+// for greasemonkey instead of violentmonkey:
+// @run-at document-end
 
 const links = [
   'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js',
