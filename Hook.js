@@ -27,5 +27,5 @@ function loadScript(url, callback) {
 	})
 }
 
-const base = GM_info.script.downloadURL.pathname.split('/').slice(0, -1).join('/');
+const base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Dispatcher.js');
