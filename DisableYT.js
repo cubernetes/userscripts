@@ -30,7 +30,7 @@ function loadScript(url, callback) {
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Runner.js', ()=>{
 	RunOnceBody(()=>{
-		console.log('DisableYT callback running');
+		console.debug('DisableYT callback running');
 		setTimeout(()=>document.body.hidden=false,20000);
 		document.body.hidden=true;
 	});

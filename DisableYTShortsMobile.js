@@ -30,7 +30,7 @@ function loadScript(url, callback) {
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Runner.js', ()=>{
 	RunForever(()=>{
-		console.log('DisableYTShorts callback running');
+		console.debug('DisableYTShorts callback running');
 
 		// remove shorts categorically
 		document.querySelector('#player-shorts-container')?.remove();

@@ -30,7 +30,7 @@ function loadScript(url, callback) {
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Runner.js', ()=>{
 	RunForever(()=>{
-		console.log('DisableYTHomepage callback running');
+		console.debug('DisableYTHomepage callback running');
 		document.querySelector('ytm-browse')?.remove();
 	});
 });

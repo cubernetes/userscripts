@@ -30,7 +30,7 @@ function loadScript(url, callback) {
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Runner.js', ()=>{
 	RunForever(()=>{
-		console.log('DisableYTRecommended callback running');
+		console.debug('DisableYTRecommended callback running');
 		document.querySelectorAll('[section-identifier="related-items"]').forEach(e=>e.remove());
 	});
 });
