@@ -5,10 +5,16 @@
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
-// @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js
 // ==/UserScript==
 
 // this is a working header for greasemonkey-style user scripts
 // use document-body for violentmonkey scripts
 
-console.log('Hook ran.');
+let remoteScript = document.createElement('script');
+remoteScript.src = 'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js?ts='+(+new Date());
+remoteScript.onload = init;
+document.body.appendChild(remoteScript);
+
+function init() {
+	console.log('Hook ran');
+}
