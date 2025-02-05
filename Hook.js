@@ -9,7 +9,7 @@
 // @grant GM.xmlHttpRequest
 // ==/UserScript==
 
-console.log('Running Hook')
+console.log('Running Hook');
 
 if (window.unsafeWindow)
 	unsafeWindow.GM = GM;
