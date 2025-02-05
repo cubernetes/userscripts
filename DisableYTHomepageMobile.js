@@ -27,7 +27,7 @@ function loadScript(url, callback) {
 	})
 }
 
-const base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
+base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Runner.js', ()=>{
 	RunForever(()=>{
 		console.log('DisableYTHomepage callback running');

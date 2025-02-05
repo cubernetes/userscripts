@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Userscript hook
 // @description Loads another script that then loads other scripts. Useful when client script can't change easily (i.e. scripts can only be added via files, as in cromite)
-// @version	20250205d.13
+// @version	20250205d.14
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
@@ -27,5 +27,5 @@ function loadScript(url, callback) {
 	})
 }
 
-const base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
+base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/Dispatcher.js');
