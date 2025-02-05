@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Userscript hook
 // @description Loads another script that then loads other scripts. Useful when client script can't change easily (i.e. scripts can only be added via files, as in cromite)
-// @version	20250205d.4
+// @version	20250205d.5
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
