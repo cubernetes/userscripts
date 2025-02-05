@@ -5,7 +5,10 @@
 // @run-at document-body
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
+// @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/WaitForBody.js
 // ==/UserScript==
 
-setTimeout(()=>document.body.hidden=false,20000);
-document.body.hidden=true
+waitForBody(()=>{
+	setTimeout(()=>document.body.hidden=false,20000);
+	document.body.hidden=true
+});
