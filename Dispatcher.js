@@ -1,24 +1,30 @@
 // ==UserScript==
 // @name Script dispatcher
 // @description Should be required by a Hook. Allows for easy adding of more scripts
-// @version	20250205d.2
+// @version	20250205d.3
 // @run-at document-body
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
-// @grant GM.addElement
+// @grant GM_addElement
+// @grant GM_xmlhttpRequest
 // ==/UserScript==
 
 console.log('Running Dispatcher');
 
-GM.addElement('script', {
-  src: 'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js?ts='+(+new Date()),
-  type: 'text/javascript'
-});
+function loadScript(url) {
+	GM_xmlHttpRequest({
+	  method: 'GET',
+	  url: url+'?ts='+(+new Date()),
+	  onload: (response)=>{
+		alert(response.responseText)
+		GM_addElement('script', {
+		  textContent: response.responseText
+		});
+	  }
+	})
+}
 
-GM.addElement('script', {
-	textContent: 'console.log("It works!!!");'
-});
-
+loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js');
 // https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js
 // https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js
 // https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js
