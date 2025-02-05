@@ -8,7 +8,8 @@
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/WaitForBody.js
 // ==/UserScript==
 
-console.log('DisableYT running')
+console.log('Running DisableYTrunning')
+
 RunOnce(()=>{
 	console.log('DisableYT callback running')
 	setTimeout(()=>document.body.hidden=false,20000);

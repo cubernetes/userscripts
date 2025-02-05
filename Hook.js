@@ -10,11 +10,9 @@
 // this is a working header for greasemonkey-style user scripts
 // use document-body for violentmonkey scripts
 
-let remoteScript = document.createElement('script');
-remoteScript.src = 'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js?ts='+(+new Date());
-remoteScript.onload = init;
-document.body.appendChild(remoteScript);
+console.log('Running Hook')
 
-function init() {
-	console.log('Hook ran');
-}
+GM_addElement('script', {
+  src: 'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js?ts='+(+new Date()),
+  type: 'text/javascript'
+});
