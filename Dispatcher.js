@@ -5,12 +5,13 @@
 // @run-at document-body
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
-// @grant GM_addElement
-// @grant GM_xmlhttpRequest
+// @grant GM.addElement
+// @grant GM.xmlHttpRequest
 // ==/UserScript==
 
 console.log('Running Dispatcher');
-console.log('Window', window);
+
+unsafeWindow.GM = GM;
 
 function loadScript(url) {
 	GM_xmlhttpRequest({

@@ -5,12 +5,13 @@
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
-// @grant GM_addElement
-// @grant GM_xmlhttpRequest
+// @grant GM.addElement
+// @grant GM.xmlHttpRequest
 // ==/UserScript==
 
 console.log('Running Hook')
 
+unsafeWindow.GM = GM;
 function loadScript(url) {
 	GM_xmlhttpRequest({
 	  method: 'GET',
