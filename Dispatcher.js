@@ -20,7 +20,7 @@ function loadScript(url, callback) {
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
-		console.log(response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();'));
+		console.log(response.responseText + (callback === undefined ? '<nothing>' : '\n(' + callback.toString() + ')();'));
 		GM.addElement('script', {
 			textContent: response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();')
 		});
@@ -30,6 +30,6 @@ function loadScript(url, callback) {
 
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
 loadScript(base + '/DisableYT.js');
-loadScript(base + '/DisableYTHomepageMobile.js')
-loadScript(base + '/DisableYTRecommendedMobile.js')
-loadScript(base + '/DisableYTShortsMobile.js')
+//loadScript(base + '/DisableYTHomepageMobile.js')
+//loadScript(base + '/DisableYTRecommendedMobile.js')
+//loadScript(base + '/DisableYTShortsMobile.js')
