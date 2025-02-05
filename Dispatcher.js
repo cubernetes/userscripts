@@ -29,7 +29,7 @@ function loadScript(url, callback) {
 }
 
 base = GM.info.script.downloadURL.split('/').slice(0, -1).join('/');
-loadScript(base + '/DisableYT.js');
-//loadScript(base + '/DisableYTHomepageMobile.js')
+//loadScript(base + '/DisableYT.js');
+loadScript(base + '/DisableYTHomepageMobile.js')
 //loadScript(base + '/DisableYTRecommendedMobile.js')
 //loadScript(base + '/DisableYTShortsMobile.js')
