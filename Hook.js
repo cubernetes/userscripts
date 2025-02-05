@@ -1,11 +1,14 @@
 // ==UserScript==
-// @name YouTube Userscript wrapper
-// @description Static wrapper for my other scripts, since userscript plugin of cromite doesn't support URLs, but only files
-// @version	20250205d.2
-// @run-at document-body
+// @name Userscript hook
+// @description Single require to another file that requires arbtrary amount of files. Useful when client script can't change easily (i.e. scripts can only be added via files, as in cromite)
+// @version	20250205d.0
+// @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js
 // ==/UserScript==
 
-console.log('Hook run');
+// this is a working header for greasemonkey-style user scripts
+// use document-body for violentmonkey scripts
+
+console.log('Hook ran');

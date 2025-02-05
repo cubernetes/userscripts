@@ -8,7 +8,7 @@
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/WaitForBody.js
 // ==/UserScript==
 
-waitForBody(()=>{
+RunOnce(()=>{
 	setTimeout(()=>document.body.hidden=false,20000);
 	document.body.hidden=true
 });
