@@ -11,4 +11,4 @@
 // this is a working header for greasemonkey-style user scripts
 // use document-body for violentmonkey scripts
 
-console.log('Hook ran');
+console.log('Hook ran.');

@@ -8,7 +8,7 @@
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js
 // ==/UserScript==
 
-console.log('Dispatcher ran');
+console.log('Dispatcher ran.');
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js
 // @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js
