@@ -26,7 +26,9 @@ function loadScript(url, callback) {
 	})
 }
 
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Runner.js', ()=>{
+const url = window.location;
+const base = url.protocol + '//' + url.host + url.pathname.split('/').slice(0, -1).join('/');
+loadScript(base + '/Runner.js', ()=>{
 	RunOnceBody(()=>{
 		console.log('DisableYT callback running');
 		setTimeout(()=>document?.body.hidden=false,20000);

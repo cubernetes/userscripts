@@ -26,7 +26,9 @@ function loadScript(url, callback) {
 	})
 }
 
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js');
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js')
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js')
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js')
+const url = window.location;
+const base = url.protocol + '//' + url.host + url.pathname.split('/').slice(0, -1).join('/');
+loadScript(base + '/DisableYT.js');
+loadScript(base + '/DisableYTHomepageMobile.js')
+loadScript(base + '/DisableYTRecommendedMobile.js')
+loadScript(base + '/DisableYTShortsMobile.js')

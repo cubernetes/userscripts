@@ -26,4 +26,6 @@ function loadScript(url, callback) {
 	})
 }
 
-loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js');
+const url = window.location;
+const base = url.protocol + '//' + url.host + url.pathname.split('/').slice(0, -1).join('/');
+loadScript(base + '/Dispatcher.js');
