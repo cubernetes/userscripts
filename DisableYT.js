@@ -12,7 +12,8 @@ console.log('Running DisableYTrunning')
 
 // @grant GM.addElement
 // @grant GM.xmlHttpRequest
-//unsafeWindow.GM = GM;
+//if (unsafeWindow)
+//	unsafeWindow.GM = GM;
 //
 //function loadScript(url) {
 //	GM.xmlHttpRequest({
