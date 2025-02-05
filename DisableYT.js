@@ -5,76 +5,31 @@
 // @run-at document-body
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
-// @require https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/WaitForBody.js
-// ==/UserScript==
-
-console.log('Running DisableYTrunning')
-
 // @grant GM.addElement
 // @grant GM.xmlHttpRequest
-//if (unsafeWindow)
-//	unsafeWindow.GM = GM;
-//
-//function loadScript(url) {
-//	GM.xmlHttpRequest({
-//	  method: 'GET',
-//	  url: url+'?ts='+(+new Date()),
-//	  onload: (response)=>{
-//		alert(response.responseText)
-//		GM.addElement('script', {
-//		  textContent: response.responseText + '\n' + 
-//		});
-//	  }
-//	})
-//}
+// ==/UserScript==
 
-RunOnce(()=>{
-	console.log('DisableYT callback running')
-	setTimeout(()=>document.body.hidden=false,20000);
-	document.body.hidden=true
-	console.log('DisableYT callback done: ', document.body === undefined)
+console.log('Running DisableYT');
+
+if (window.unsafeWindow)
+	unsafeWindow.GM = GM;
+
+function loadScript(url, callback) {
+	GM.xmlHttpRequest({
+	  method: 'GET',
+	  url: url+'?ts='+(+new Date()),
+	  onload: (response)=>{
+		GM.addElement('script', {
+			textContent: response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();')
+		});
+	  }
+	})
+}
+
+loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Runner.js', ()=>{
+	RunOnceBody(()=>{
+		console.log('DisableYT callback running');
+		setTimeout(()=>document?.body.hidden=false,20000);
+		document?.body.hidden=true;
+	});
 });
-
-
-
-
-
-
-
-
-
-// stuff
-function RunForever(outerCallback) {
-	// https://stackoverflow.com/a/14570614
-	const observeDOM = (()=>{
-		const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
-
-		return (obj, callback)=>{
-			if (!obj || !obj.nodeType === true) {
-				return;
-			}
-			if (MutationObserver) {
-				const obs = new MutationObserver((mutations)=>{
-					if (mutations[0].addedNodes.length) {
-						callback(mutations[0]);
-						obs.disconnect();
-					}
-				});
-				obs.observe(obj, {childList: true, subtree: true});
-			} else if (window.addEventListener) {
-				obj.addEventListener('DOMNodeInserted', callback, false);
-			}
-		}
-	})();
-
-	observeDOM(document, ()=>outerCallback());
-}
-
-function RunOnceBody(callback) {
-	let id = setInterval(()=>{
-		if (document.body) {
-			callback();
-			clearInterval(id);
-		}
-	}, 200);
-}

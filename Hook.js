@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Userscript hook
 // @description Loads another script that then loads other scripts. Useful when client script can't change easily (i.e. scripts can only be added via files, as in cromite)
-// @version	20250205d.7
+// @version	20250205d.10
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
@@ -11,15 +11,16 @@
 
 console.log('Running Hook')
 
-if (unsafeWindow)
+if (window.unsafeWindow)
 	unsafeWindow.GM = GM;
-function loadScript(url) {
+
+function loadScript(url, callback) {
 	GM.xmlHttpRequest({
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
 		GM.addElement('script', {
-		  textContent: response.responseText
+			textContent: response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();')
 		});
 	  }
 	})

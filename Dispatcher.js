@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Script dispatcher
 // @description Should be required by a Hook. Allows for easy adding of more scripts
-// @version	20250205d.3
+// @version	20250205d.4
 // @run-at document-body
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
@@ -11,23 +11,22 @@
 
 console.log('Running Dispatcher');
 
-if (unsafeWindow)
+if (window.unsafeWindow)
 	unsafeWindow.GM = GM;
 
-function loadScript(url) {
+function loadScript(url, callback) {
 	GM.xmlHttpRequest({
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
-		alert(response.responseText)
 		GM.addElement('script', {
-		  textContent: response.responseText
+			textContent: response.responseText + (callback === undefined ? '' : '\n(' + callback.toString() + ')();')
 		});
 	  }
 	})
 }
 
 loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYT.js');
-// https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js
-// https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js
-// https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js
+loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTHomepageMobile.js')
+loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTRecommendedMobile.js')
+loadScript('https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/DisableYTShortsMobile.js')
