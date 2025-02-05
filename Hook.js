@@ -5,6 +5,7 @@
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
+// @grant GM.addElement
 // ==/UserScript==
 
 // this is a working header for greasemonkey-style user scripts
@@ -12,7 +13,11 @@
 
 console.log('Running Hook')
 
-GM_addElement('script', {
+GM.addElement('script', {
   src: 'https://raw.githubusercontent.com/cubernetes/userscripts/refs/heads/main/Dispatcher.js?ts='+(+new Date()),
   type: 'text/javascript'
+});
+
+GM.addElement('script', {
+	textContent: 'console.log("Also works for hook");'
 });
