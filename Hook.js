@@ -13,11 +13,11 @@ console.log('Running Hook')
 
 unsafeWindow.GM = GM;
 function loadScript(url) {
-	GM_xmlhttpRequest({
+	GM.xmlHttpRequest({
 	  method: 'GET',
 	  url: url+'?ts='+(+new Date()),
 	  onload: (response)=>{
-		GM_addElement('script', {
+		GM.addElement('script', {
 		  textContent: response.responseText
 		});
 	  }

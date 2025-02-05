@@ -15,12 +15,12 @@ console.log('Running DisableYTrunning')
 //unsafeWindow.GM = GM;
 //
 //function loadScript(url) {
-//	GM_xmlhttpRequest({
+//	GM.xmlHttpRequest({
 //	  method: 'GET',
 //	  url: url+'?ts='+(+new Date()),
 //	  onload: (response)=>{
 //		alert(response.responseText)
-//		GM_addElement('script', {
+//		GM.addElement('script', {
 //		  textContent: response.responseText + '\n' + 
 //		});
 //	  }
