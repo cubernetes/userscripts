@@ -6,7 +6,7 @@
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
 // @grant GM_addElement
-// @grant GM_xmlHttpRequest
+// @grant GM_xmlhttpRequest
 // ==/UserScript==
 
 console.log('Running Hook')
