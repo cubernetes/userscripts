@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name Userscript hook
 // @description Single require to another file that requires arbtrary amount of files. Useful when client script can't change easily (i.e. scripts can only be added via files, as in cromite)
-// @version	20250205d.2
+// @version	20250205d.3
 // @run-at document-end
 // @include	*://youtube.com/*
 // @include	*://*.youtube.com/*
