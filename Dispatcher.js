@@ -7,6 +7,7 @@
 // @include	*://*.youtube.com/*
 // @grant GM.addElement
 // @grant GM.xmlHttpRequest
+// @downloadURL https://timo.one/us/Dispatcher.js
 // ==/UserScript==
 
 console.log('Running Dispatcher');
@@ -26,8 +27,7 @@ function loadScript(url, callback) {
 	})
 }
 
-const url = window.location;
-const base = url.protocol + '//' + url.host + url.pathname.split('/').slice(0, -1).join('/');
+const base = GM_info.script.downloadURL.pathname.split('/').slice(0, -1).join('/');
 loadScript(base + '/DisableYT.js');
 loadScript(base + '/DisableYTHomepageMobile.js')
 loadScript(base + '/DisableYTRecommendedMobile.js')
